@@ -19,17 +19,17 @@ public class SavingsAccount extends Account {
 		this.minBalance = minBalance;
 	}
 
-	float calculateInterest() { // Calculates interest
+	float calculateInterest() throws MyException { // Calculates interest
 		double noOfYears = getNoOfYears();
 		double balance = getBalance();
-		if (getBalance() > getMinBalance()) {
+		if (getBalance() > getMinBalance()) {	
 			if (getBalance() > 200000) {
 				return (float) ((noOfYears * balance * 4) / 100);
 			} else {
 				return (float) ((noOfYears * balance * 3.5) / 100);
 			}
 		} else {
-			return 0;
+			throw new MyException("Min. required balance is not present, so no interest can be calculated");
 		}
 	}
 
