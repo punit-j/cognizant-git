@@ -45,7 +45,7 @@ public class SortList {
 		}
 		if (operation.equals("sortDobAsc"))
 			System.out.println(sortDOB(empl));
-
+		sc.close();
 	}
 
 	private static ArrayList<Employee> sortDOB(ArrayList<Employee> empl) { // method to sort date of birth in ascending
