@@ -53,12 +53,7 @@ public class SortList {
 		Collections.sort(empl, new Comparator<Employee>() {
 
 			public int compare(Employee o1, Employee o2) {
-				if (o1.getDob().isEqual(o2.getDob()))
-					return 0;
-				if (o1.getDob().isBefore(o2.getDob()))
-					return -1;
-				else
-					return 1;
+				return o1.getDob().compareTo(o2.getDob());
 			}
 		});
 		return empl;
