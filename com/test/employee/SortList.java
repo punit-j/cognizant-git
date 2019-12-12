@@ -1,6 +1,7 @@
 package com.wellsfargo.employee;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -17,18 +18,20 @@ public class SortList {
 
 	public static void main(String[] args) {
 		ArrayList<Employee> empl = new ArrayList<Employee>(); // Employee list declaration
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");// formatter for local date time
 
-		empl.add(new Employee("Punit", "Mumbai", 22000, LocalDateTime.of(1997, 02, 24, 06, 30))); // adding Employee
-																									// data to the list
-		empl.add(new Employee("Sujeet", "Pune", 2000, LocalDateTime.of(1997, 06, 20, 02, 00)));
-		empl.add(new Employee("Vibhu", "Amritsar", 2400, LocalDateTime.of(1996, 12, 23, 11, 00)));
-		empl.add(new Employee("Palak", "Surat", 1900, LocalDateTime.of(1997, 07, 22, 05, 00)));
-		empl.add(new Employee("Pankhuri", "Pune", 8000, LocalDateTime.of(1997, 9, 9, 00, 00)));
-		empl.add(new Employee("Mrunali", "Pune", 21000, LocalDateTime.of(1997, 8, 12, 07, 30)));
-		empl.add(new Employee("Johnny Depp", "LA", 500, LocalDateTime.of(1980, 01, 01, 04, 30)));
-		empl.add(new Employee("Martin Garrix", "Pune", 2000, LocalDateTime.of(1970, 05, 11, 22, 30)));
-		empl.add(new Employee("Navin", "Hyderabad", 2200, LocalDateTime.of(1997, 07, 21, 21, 30)));
-		empl.add(new Employee("Tony Stark", "Gotham", 250, LocalDateTime.of(1980, 05, 2, 15, 30)));
+		empl.add(new Employee("Punit", "Mumbai", 22000, LocalDateTime.parse("1997-02-24 06:30", formatter))); // adding
+																												// Employee
+		// data to the list
+		empl.add(new Employee("Sujeet", "Pune", 2000, LocalDateTime.parse("1997-06-20 02:00", formatter)));
+		empl.add(new Employee("Vibhu", "Amritsar", 2400, LocalDateTime.parse("1996-12-23 11:00", formatter)));
+		empl.add(new Employee("Palak", "Surat", 1900, LocalDateTime.parse("1997-07-22 05:00", formatter)));
+		empl.add(new Employee("Pankhuri", "Pune", 8000, LocalDateTime.parse("1997-09-09 00:00", formatter)));
+		empl.add(new Employee("Mrunali", "Pune", 21000, LocalDateTime.parse("1997-08-12 07:30", formatter)));
+		empl.add(new Employee("Johnny Depp", "LA", 500, LocalDateTime.parse("1980-01-01 04:30", formatter)));
+		empl.add(new Employee("Martin Garrix", "Pune", 2000, LocalDateTime.parse("1970-05-11 22:30", formatter)));
+		empl.add(new Employee("Navin", "Hyderabad", 2200, LocalDateTime.parse("1997-07-21 21:30", formatter)));
+		empl.add(new Employee("Tony Stark", "Gotham", 250, LocalDateTime.parse("1980-05-2 15:30", formatter)));
 
 		Scanner sc = new Scanner(System.in);
 		System.out.println("What do you want to do(avgSalary/sortSalaryDesc/searchCity/sortDobAsc");
@@ -49,7 +52,7 @@ public class SortList {
 	}
 
 	private static ArrayList<Employee> sortDOB(ArrayList<Employee> empl) { // method to sort date of birth in ascending
-																			// order
+		// order
 		Collections.sort(empl, new Comparator<Employee>() {
 
 			public int compare(Employee o1, Employee o2) {
