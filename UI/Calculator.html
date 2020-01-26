@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+        .num-btn{
+            width: 50px;
+            height: 50px;
+            background-color: beige;
+            color: grey;
+        }
+        .num-btn:hover{
+            background-color: grey;
+            color: wheat;
+            border: none;
+        }
+        .num-btn2{
+            width: 50px;
+            height: 50px;
+            background-color: papayawhip;
+            color: black;
+        }
+        .num-btn2:hover{
+            background-color: grey;
+            color: wheat;
+            border: none;
+        }
+        .display{
+            width: 170px;
+            height: 100px;
+            color: black;
+            text-align: right;
+            font-size: 8mm;
+        }
+        #operation-string{
+            width: 170px;
+            height: 50px;
+        }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <p id="operation-string"></p>
+                <div class="display" id="display"></div>
+            </tr>    
+            <tr>
+                <td>
+                    <button class="num-btn" onclick="addNum(9)">9</button>
+                </td>
+                <td>
+                    <button class="num-btn" onclick="addNum(8)">8</button>
+                </td>
+                <td>
+                    <button class="num-btn" onclick="addNum(7)">7</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="num-btn" onclick="addNum(6)">6</button>
+                </td>
+                <td>
+                    <button class="num-btn" onclick="addNum(5)">5</button>
+                </td>
+                <td>
+                    <button class="num-btn" onclick="addNum(4)">4</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="num-btn" onclick="addNum(3)">3</button>
+                </td>
+                <td>
+                    <button class="num-btn" onclick="addNum(2)">2</button>
+                </td>
+                <td>
+                    <button class="num-btn" onclick="addNum(1)">1</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="num-btn" onclick="addNum(0)">0</button>
+                </td>
+                <td>
+                    <button class="num-btn2" onclick="calculate()">=</button>
+                </td>
+                <td>
+                    <button class="num-btn2" onclick="operation('+')">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="num-btn2" onclick="operation('-')">-</button>
+                </td>
+                <td>
+                    <button class="num-btn2" onclick="operation('*')">*</button>
+                </td>
+                <td>
+                    <button class="num-btn2" onclick="operation('/')">/</button>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            var firstNum=0;
+            var x=0;
+            var operator = 0;
+            var secondNum=0;
+            var sol = 0;
+            var str = "";
+        function addNum(a){
+            x= x*10+a;
+            str=str+a;
+            document.getElementById("display").innerHTML = x;
+            document.getElementById("operation-string").innerHTML = str;
+        }
+        function operation(b){
+            firstNum = x;
+            if(firstNum==0){
+                alert("Enter number first");
+            }
+            else{
+                x=0;
+                operator=b;
+                str=firstNum+operator;
+                document.getElementById("operation-string").innerHTML = str;
+                document.getElementById("display").innerHTML = b;
+            }
+        }
+        function calculate(){
+            secondNum = x;
+            if(secondNum==0 || operator==0){
+                alert("Enter the second number or operator");
+            }
+            else{
+                x=0;
+                switch(operator){
+                    case "+":
+                        sol = firstNum+secondNum;
+                        break;
+                    case "-":
+                        sol = firstNum-secondNum;
+                        break;
+                    case "*":
+                        sol = firstNum*secondNum;
+                        break;
+                    case "/":
+                        sol = firstNum/secondNum;
+                        break;
+                }
+                str="";
+                document.getElementById("display").innerHTML = sol;
+            }
+        }
+        </script>
+    </body>
+</html>
