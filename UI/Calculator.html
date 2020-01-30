@@ -26,7 +26,7 @@
         }
         .display{
             width: 170px;
-            height: 100px;
+            height: 80px;
             color: black;
             text-align: right;
             font-size: 8mm;
@@ -35,77 +35,98 @@
             width: 170px;
             height: 50px;
         }
+        .grid{
+            display: grid;
+            justify-content: center;
+        }
+        .dis{
+            grid-column: 1/span 5;
+            grid-row: 1;
+            border:solid 3px grey;
+        }
+        .first-row{
+            grid-row: 2;
+        }
+        .second-row{
+            grid-row :3;
+        }
+        .third-row{
+            grid-row :4;
+        }
+        .fourth-row{
+            grid-row :5;
+        }
+        .fourth-column{
+            grid-column: 4;
+        }
+        #width-auto{
+            width: 100px;
+        }
+        #equals{
+            grid-row: 5;
+            grid-column: 2/ span 2;
+        }
         </style>
     </head>
     <body>
-        <table>
-            <tr>
+        <div class="grid">
+            <div class="dis">
                 <p id="operation-string"></p>
                 <div class="display" id="display"></div>
-            </tr>    
-            <tr>
-                <td>
+            </div>    
+            <div class="first-row">
                     <button class="num-btn" onclick="addNum(9)">9</button>
-                </td>
-                <td>
+            </div>
+            <div class="first-row">
                     <button class="num-btn" onclick="addNum(8)">8</button>
-                </td>
-                <td>
+            </div>
+            <div class="first-row">
                     <button class="num-btn" onclick="addNum(7)">7</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
+            </div>
+            <div class="second-row">
                     <button class="num-btn" onclick="addNum(6)">6</button>
-                </td>
-                <td>
+            </div>
+            <div class="second-row">
                     <button class="num-btn" onclick="addNum(5)">5</button>
-                </td>
-                <td>
+            </div>
+            <div class="second-row">
                     <button class="num-btn" onclick="addNum(4)">4</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
+            </div>
+            <div class="third-row">
                     <button class="num-btn" onclick="addNum(3)">3</button>
-                </td>
-                <td>
+            </div>
+            <div class="third-row">
                     <button class="num-btn" onclick="addNum(2)">2</button>
-                </td>
-                <td>
+            </div>
+            <div class="third-row">
                     <button class="num-btn" onclick="addNum(1)">1</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
+            </div>
+            <div class="fourth-row">
                     <button class="num-btn" onclick="addNum(0)">0</button>
-                </td>
-                <td>
-                    <button class="num-btn2" onclick="calculate()">=</button>
-                </td>
-                <td>
+            </div>
+            <div id="equals">
+                    <button class="num-btn2" id="width-auto" onclick="calculate()">=</button>
+            </div>
+            <div class="fourth-column">
                     <button class="num-btn2" onclick="operation('+')">+</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
+            </div>
+            <div class="fourth-column">
                     <button class="num-btn2" onclick="operation('-')">-</button>
-                </td>
-                <td>
+            </div>
+            <div class="fourth-column">
                     <button class="num-btn2" onclick="operation('*')">*</button>
-                </td>
-                <td>
+            </div>
+            <div class="fourth-column">
                     <button class="num-btn2" onclick="operation('/')">/</button>
-                </td>
-            </tr>
-        </table>
+            </div>
+        </div>
 
         <script>
-            var firstNum=0;
-            var x=0;
-            var operator = 0;
-            var secondNum=0;
-            var sol = 0;
+            var firstNum="";
+            var x="";
+            var operator = "";
+            var secondNum="";
+            var sol = "";
             var str = "";
         function addNum(a){
             x= x*10+a;
@@ -115,7 +136,7 @@
         }
         function operation(b){
             firstNum = x;
-            if(firstNum==0){
+            if(firstNum===""){
                 alert("Enter number first");
             }
             else{
@@ -128,7 +149,7 @@
         }
         function calculate(){
             secondNum = x;
-            if(secondNum==0 || operator==0){
+            if(secondNum==="" || operator===""){
                 alert("Enter the second number or operator");
             }
             else{

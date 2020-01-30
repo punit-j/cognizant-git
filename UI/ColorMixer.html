@@ -48,21 +48,20 @@
     #colorBox{
         border: solid black;
     }
+    .grid{
+        display: grid;
+        justify-content: center;
+    }
     </style>
 </head>
-<body>
-    <table>
-        <td>
+<body onload="rgb()">
+    <div class="grid">
             <div class="inputColor">
-            <input type="range" min="0" max="255" style="color: red;" id="red" class="color">
-            <input type="range" min="0" max="255" style="color: green;" id="green" class="color">
-            <input type="range" min="0" max="255" style="color: blue;" id="blue" class="color">
-            <button type="button" onclick="rgb()" class="btn">get colour</button>
+            <input type="range" min="0" max="255" style="color: red;" id="red" class="color" oninput="rgb()">
+            <input type="range" min="0" max="255" style="color: green;" id="green" class="color" oninput="rgb()">
+            <input type="range" min="0" max="255" style="color: blue;" id="blue" class="color" oninput="rgb()">
             </div>
-        </td>
-        <td>
             <div class="inputColor" id="colorBox"></div>
-        </td>
     </table>
     <script>
     function rgb(){
