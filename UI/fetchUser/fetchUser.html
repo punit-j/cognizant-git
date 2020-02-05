@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User List</title>
+    <link rel="stylesheet" href="user.css">
+</head>
+
+<body>
+    <div id="blur-background">
+        <table id="userTable">
+            <thead>
+                <th onclick='sortTable("id")'>Id</th>
+                <th onclick='sortTable("name")'>Name</th>
+                <th onclick='sortTable("username")'>Username</th>
+                <th onclick='sortTable("email")'>Email</th>
+                <th onclick='sortTable("company")'>Company</th>
+            </thead>
+
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+        <div class="info" id="success-msg">
+            <p>Item deleted succesfully</p>
+        </div>
+    </div>
+    <form onsubmit="editUser()">
+        <div class="firstColumn">Id:</div>
+        <div class="secondColumn"> <input disabled id="id"></div>
+        <div class="info" id="id-msg">
+            <p>Id can't be empty</p>
+        </div>
+        <div class="firstColumn">Name:</div>
+        <div class="secondColumn"><input id="name"></div>
+        <div class="info" id="name-msg">
+            <p>Name can't be empty</p>
+        </div>
+        <div class="firstColumn">UserName:</div>
+        <div class="secondColumn"><input id="userName"></div>
+        <div class="info" id="username-msg">
+            <p>UserName can't be empty</p>
+        </div>
+        <div class="firstColumn">E-mail:</div>
+        <div class="secondColumn"><input id="email"></div>
+        <div class="info" id="email-msg">
+            <p>E-mail can't be empty</p>
+        </div>
+        <div class="firstColumn">Company:</div>
+        <div class="secondColumn"><input id="company"></div>
+        <div class="info" id="company-msg">
+            <p>Company name can't be empty</p>
+        </div>
+        <button class="edit-btn firstColumn">Submit</button>
+        <button class="delete-btn secondColumn" onclick="cancelEdit()">Cancel</button>
+    </form>
+</body>
+    <script src="user.js"></script>
+
+</html>
